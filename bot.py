@@ -1,9 +1,11 @@
 import services
+from exercise import Exercise
 
 auth = services.Authentication()
 # comment something something
 
 db = services.Database()
+ex = Exercise()
 
 class Bot:
 
@@ -38,6 +40,7 @@ class Bot:
                 print(self.user_data['name'])
                 self.write_file(self.user_data['name'])
                 self.store_user_data()
+                self.ask_for_service()
 
             else:
                 print('Check ur password length')
@@ -81,8 +84,15 @@ class Bot:
         user_logged_in = open('user_logged_in.txt', 'w')
         user_logged_in.write(name)
 
+    def ask_for_service(self):
+        ex.ask_for_user_input(self.user_data['name'])
+        ex.ask_for_user_choice()
+
+
+
 bot = Bot()
 user_name = bot.read_file()
 bot.greet_user('HI', user_name)
 bot.ask_auth_mode()
+
 

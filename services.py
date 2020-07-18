@@ -14,6 +14,8 @@ firebase = pyrebase.initialize_app(config)
 # Auth Instance
 auth = firebase.auth()
 db = firebase.database()
+
+
 class Authentication:
 
     @staticmethod
@@ -39,6 +41,7 @@ class Database:
 
     @staticmethod
     def store_user_details(user_data):
-
         db.child('users').child(user_data['name']).set(user_data)
 
+    def store_user_personal_info(self, personal_info, name):
+        db.child('users').child(name).update(personal_info)
