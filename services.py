@@ -43,5 +43,6 @@ class Database:
     def store_user_details(user_data):
         db.child('users').child(user_data['name']).set(user_data)
 
-    def store_user_personal_info(self, personal_info, name):
+    @staticmethod
+    def store_user_personal_info(personal_info, name):
         db.child('users').child(name).update(personal_info)

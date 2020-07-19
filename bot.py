@@ -7,6 +7,7 @@ auth = services.Authentication()
 db = services.Database()
 ex = Exercise()
 
+
 class Bot:
 
     email = ''
@@ -87,7 +88,6 @@ class Bot:
     def ask_for_service(self):
         ex.ask_for_user_input(self.user_data['name'])
         ex.ask_for_user_choice()
-
 
 
 bot = Bot()
